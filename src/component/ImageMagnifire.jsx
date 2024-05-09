@@ -26,6 +26,7 @@ const ImageMagnifier = ({
           onMouseEnter={(e) => {
             // update image size and turn-on magnifier
             const elem = e.currentTarget;
+            
             const { width, height } = elem.getBoundingClientRect();
             setSize([width, height]);
             setShowMagnifier(true);
