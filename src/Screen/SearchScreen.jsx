@@ -92,7 +92,7 @@ export default function SearchScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get( `${import.meta.env.VITE_API_URL}products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
@@ -232,20 +232,20 @@ export default function SearchScreen() {
                   </div>
                 </Col>
                 <Col className="text-end">
-  Sort by{' '}
-  <select
-    value={order}
-    onChange={(e) => {
-      navigate(getFilterUrl({ order: e.target.value }));
-    }}
-    className="border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  >
-    <option className="text-gray-900" value="newest">Newest Arrivals</option>
-    <option className="text-gray-900" value="lowest">Price: Low to High</option>
-    <option className="text-gray-900" value="highest">Price: High to Low</option>
-    <option className="text-gray-900" value="toprated">Avg. Customer Reviews</option>
-  </select>
-</Col>
+                  Sort by{' '}
+                  <select
+                    value={order}
+                    onChange={(e) => {
+                      navigate(getFilterUrl({ order: e.target.value }));
+                    }}
+                    className="border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option className="text-gray-900" value="newest">Newest Arrivals</option>
+                    <option className="text-gray-900" value="lowest">Price: Low to High</option>
+                    <option className="text-gray-900" value="highest">Price: High to Low</option>
+                    <option className="text-gray-900" value="toprated">Avg. Customer Reviews</option>
+                  </select>
+                </Col>
 
               </Row>
               {products.length === 0 && (
